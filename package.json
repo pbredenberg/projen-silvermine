@@ -42,13 +42,13 @@
     "jsii-docgen": "^10.3.3",
     "jsii-pacmak": "^1.93.0",
     "jsii-rosetta": "5.0.14",
-    "projen": "0.78.2",
+    "projen": "0.78.0",
     "standard-version": "^9",
     "ts-node": "7.0.1",
     "typescript": "5.2.x"
   },
   "peerDependencies": {
-    "projen": "0.78.2"
+    "projen": "~0.78.x"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

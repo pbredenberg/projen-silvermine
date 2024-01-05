@@ -10,7 +10,7 @@ const project = new cdk.JsiiProject({
   repositoryUrl: 'https://github.com/projen-silvermine.git',
   packageName: 'projen-silvermine',
   devDeps: ['fs-extra', '@types/fs-extra', 'glob'],
-  peerDeps: ['projen@0.78.2'],
+  peerDeps: ['projen@~0.78.x'],
   jsiiVersion: '5.0.14',
   jest: false,
   eslint: false,
@@ -19,7 +19,5 @@ const project = new cdk.JsiiProject({
   autoApproveOptions: { allowedUsernames: ['cdklabs-automation'] },
   packageManager: NodePackageManager.NPM,
 });
-
-// project.addDevDeps('');
 
 project.synth();
