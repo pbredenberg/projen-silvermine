@@ -1,4 +1,5 @@
 import { cdk } from 'projen';
+import { NodePackageManager } from 'projen/lib/javascript';
 
 const project = new cdk.JsiiProject({
   projenrcTs: true,
@@ -9,11 +10,16 @@ const project = new cdk.JsiiProject({
   repositoryUrl: 'https://github.com/projen-silvermine.git',
   packageName: 'projen-silvermine',
   devDeps: ['fs-extra', '@types/fs-extra', 'glob'],
-  peerDeps: ['projen'],
-  jsiiVersion: '5.2.x',
+  peerDeps: ['projen@0.78.2'],
+  jsiiVersion: '5.0.14',
+  jest: false,
+  eslint: false,
   typescriptVersion: '5.2.x',
   autoApproveUpgrades: true,
   autoApproveOptions: { allowedUsernames: ['cdklabs-automation'] },
+  packageManager: NodePackageManager.NPM,
 });
+
+// project.addDevDeps('');
 
 project.synth();

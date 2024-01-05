@@ -5,22 +5,8 @@
       "type": "build"
     },
     {
-      "name": "@types/jest",
-      "type": "build"
-    },
-    {
       "name": "@types/node",
       "version": "^18",
-      "type": "build"
-    },
-    {
-      "name": "@typescript-eslint/eslint-plugin",
-      "version": "^6",
-      "type": "build"
-    },
-    {
-      "name": "@typescript-eslint/parser",
-      "version": "^6",
       "type": "build"
     },
     {
@@ -29,33 +15,11 @@
       "type": "build"
     },
     {
-      "name": "eslint-import-resolver-typescript",
-      "type": "build"
-    },
-    {
-      "name": "eslint-plugin-import",
-      "type": "build"
-    },
-    {
-      "name": "eslint",
-      "version": "^8",
-      "type": "build"
-    },
-    {
       "name": "fs-extra",
       "type": "build"
     },
     {
       "name": "glob",
-      "type": "build"
-    },
-    {
-      "name": "jest",
-      "type": "build"
-    },
-    {
-      "name": "jest-junit",
-      "version": "^15",
       "type": "build"
     },
     {
@@ -72,12 +36,12 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "5.2.x",
+      "version": "5.0.14",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "5.2.x",
+      "version": "5.0.14",
       "type": "build"
     },
     {
@@ -87,10 +51,6 @@
     {
       "name": "standard-version",
       "version": "^9",
-      "type": "build"
-    },
-    {
-      "name": "ts-jest",
       "type": "build"
     },
     {
@@ -104,6 +64,7 @@
     },
     {
       "name": "projen",
+      "version": "0.78.2",
       "type": "peer"
     }
   ],
