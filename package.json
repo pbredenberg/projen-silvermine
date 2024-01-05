@@ -2,7 +2,7 @@
   "name": "projen-silvermine",
   "repository": {
     "type": "git",
-    "url": "https://github.comprojen-silvermine.git"
+    "url": "https://github.com/projen-silvermine.git"
   },
   "scripts": {
     "build": "npx projen build",
