@@ -46,3 +46,4 @@ jspm_packages/
 tsconfig.json
 !/API.md
 !/package-lock.json
+!/.nvmrc

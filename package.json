@@ -56,11 +56,11 @@
     "projen": ">=0.78.x"
   },
   "engines": {
-    "node": ">= 16.9.0 <= 16.9.0"
+    "node": ">= 16.15.0 <= 16.15.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "types": "lib/index.d.ts",
   "stability": "stable",
   "jsii": {

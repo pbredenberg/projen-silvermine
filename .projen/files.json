@@ -1,10 +1,10 @@
 {
   "files": [
-    ".eslintrc.json",
     ".gitattributes",
     ".github/pull_request_template.md",
     ".github/workflows/build.yml",
     ".gitignore",
+    ".nvmrc",
     ".projen/deps.json",
     ".projen/files.json",
     ".projen/tasks.json",

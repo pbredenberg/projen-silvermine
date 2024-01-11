@@ -1,5 +1,5 @@
-import { cdk, SampleFile } from 'projen';
-import { DEFAULT_PROJEN_CONFIG } from './src';
+import { cdk, SampleFile, TextFile } from 'projen';
+import { CURRENT_NODE_VERSION, DEFAULT_PROJEN_CONFIG } from './src';
 import { devDependencies } from './src/configuration/dev-dependencies';
 import { configureGitIgnore } from './src/configuration/git-ignore';
 import { configureGithubActions } from './src/configuration/github-actions';
@@ -35,5 +35,9 @@ project.tryRemoveFile('.eslintrc.json');
 });
 
 configureGitIgnore(project);
+
+new TextFile(project, '.nvmrc', {
+  lines: [ CURRENT_NODE_VERSION ]
+})
 
 project.synth();
