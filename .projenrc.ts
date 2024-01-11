@@ -3,6 +3,7 @@ import { CURRENT_NODE_VERSION, DEFAULT_PROJEN_CONFIG } from './src';
 import { devDependencies } from './src/configuration/dev-dependencies';
 import { configureGitIgnore } from './src/configuration/git-ignore';
 import { configureGithubActions } from './src/configuration/github-actions';
+import { configureNpmScripts } from './src/configuration/npm-scripts';
 
 const project = new cdk.JsiiProject({
   ...DEFAULT_PROJEN_CONFIG,
@@ -24,7 +25,8 @@ devDependencies.forEach((dependency) => () => {
 
 configureGithubActions(project);
 
-project.tryRemoveFile('.eslintrc.json');
+configureNpmScripts(project);
+
 [
   '.eslintrc.json',
   '.editorconfig',

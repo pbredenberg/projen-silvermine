@@ -4,6 +4,7 @@ import { NodePackageManager } from 'projen/lib/javascript';
 import { devDependencies } from './configuration/dev-dependencies';
 import { configureGitIgnore } from './configuration/git-ignore';
 import { configureGithubActions } from './configuration/github-actions';
+import { configureNpmScripts } from './configuration/npm-scripts';
 
 export const CURRENT_NODE_VERSION = '16.15.0';
 
@@ -19,6 +20,7 @@ export const DEFAULT_PROJEN_CONFIG: typescript.TypeScriptProjectOptions = {
   githubOptions: {
     mergify: false,
   },
+  eslint: false,
   jest: false,
   depsUpgrade: false,
   sampleCode: false,
@@ -39,7 +41,7 @@ export class SilvermineProject extends typescript.TypeScriptProject {
 
     configureGitIgnore(this);
 
-    this.tryRemoveFile('.eslintrc.json');
+    configureNpmScripts(this);
 
     [
       '.eslintrc.json',

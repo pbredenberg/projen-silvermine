@@ -14,7 +14,6 @@
     "default": "npx projen default",
     "docgen": "npx projen docgen",
     "eject": "npx projen eject",
-    "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:js": "npx projen package:js",
@@ -24,7 +23,10 @@
     "test": "npx projen test",
     "unbump": "npx projen unbump",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "release:preview": "node ./node_modules/@silvermine/standardization/scripts/release.js preview",
+    "release:prep-changelog": "node ./node_modules/@silvermine/standardization/scripts/release.js prep-changelog",
+    "release:finalize": "node ./node_modules/@silvermine/standardization/scripts/release.js finalize"
   },
   "author": {
     "name": "Paul Bredenberg",
@@ -34,12 +36,7 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^16",
-    "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^6",
     "constructs": "^10.0.0",
-    "eslint": "^8",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
     "fs-extra": "^9.1.0",
     "glob": "^7.2.3",
     "jsii": "5.0.14",
