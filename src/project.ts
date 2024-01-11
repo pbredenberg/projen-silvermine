@@ -1,5 +1,5 @@
 /* eslint-disable no-new */
-import { JsonFile, JsonPatch, TextFile, typescript } from 'projen';
+import { JsonPatch, SampleFile, typescript } from 'projen';
 import { NodePackageManager } from 'projen/lib/javascript';
 
 const CURRENT_NODE_VERSION = '16.9.0';
@@ -17,6 +17,7 @@ export const DEFAULT_PROJEN_CONFIG: typescript.TypeScriptProjectOptions = {
    },
    jest: false,
    depsUpgrade: false,
+   sampleCode: false,
 };
 
 export class SilvermineProject extends typescript.TypeScriptProject {
@@ -102,94 +103,23 @@ export class SilvermineProject extends typescript.TypeScriptProject {
 
       this.tryRemoveFile('.eslintrc.json');
 
-      // This is a TextFile instead of a JsonFile because otherwise Projen
-      // will attempt to inject a comment line into the config object,
-      // which breaks ESlint.
-      new TextFile(this, '.eslintrc.json', {
-         lines: [
-            '{',
-            '   "root": true,',
-            '   "extends": "@silvermine/eslint-config/node",',
-            '   "ignorePatterns": [ "lib/**/*" ]',
-            '}',
-         ],
-      });
-
-     new TextFile(this, '.mocha.opts', {
-       lines: [
-         '--require source-map-support/register',
-         '--require ./test/setup/before.ts',
-         '--full-trace',
-         '--bail',
-         'test/**/*.test.ts',
-       ],
-     });
-
-     new JsonFile(this, '.nycrc.json', {
-       obj: {
-         'include': [
-           'src/**/*.{ts,js}',
-         ],
-         'exclude': [
-           '**/*.d.ts',
-         ],
-         'extension': [
-           '.ts',
-           '.js',
-         ],
-         'require': [
-           'ts-node/register',
-         ],
-         'reporter': [
-           'text-summary',
-           'html',
-           'lcov',
-         ],
-         'sourceMap': true,
-         'all': true,
-       },
-     });
-
-     new TextFile(this, 'test/tsconfig.json', {
-       lines: [
-         '{',
-         '   "extends": "@silvermine/typescript-config/tsconfig.json"',
-         '}',
-       ],
-     });
-
-     new TextFile(this, 'src/tsconfig.commonjs.json', {
-       lines: [
-         '{',
-         '   "extends": "@silvermine/typescript-config/tsconfig.commonjs.json",',
-         '   "compilerOptions": {',
-         '      "outDir": "../dist/commonjs/"',
-         '   }',
-         '}',
-       ],
-     });
-
-     new TextFile(this, 'src/tsconfig.esm.json', {
-       lines: [
-         '{',
-         '   "extends": "@silvermine/typescript-config/tsconfig.esm.json",',
-         '   "compilerOptions": {',
-         '      "outDir": "../dist/esm/"',
-         '   }',
-         '}',
-       ],
-     });
-
-     new TextFile(this, 'src/tsconfig.types.json', {
-       lines: [
-         '{',
-         '   "extends": "@silvermine/typescript-config/tsconfig.types.json",',
-         '   "compilerOptions": {',
-         '      "outDir": "../dist/types/"',
-         '   }',
-         '}',
-       ],
-     });
+      [
+       '.eslintrc.json',
+       '.mocha.opts',
+       'nycrc.json',
+       'src/Example.ts',
+       'src/index.ts',
+       'src/tsconfig.commonjs.json',
+       'src/tsconfig.esm.json',
+       'src/tsconfig.types.json',
+       'tests/setup/before.ts',
+       'tests/_eslintrc.json',
+       'tests/index.test.ts',
+       'tests/tsconfig.json',
+      ].forEach((filePath) => {
+       new SampleFile(this, filePath, {
+         sourcePath: `${__dirname}/sample-files/${filePath.replace('/_', '')}`
+       })
+      })
    }
-
 }
