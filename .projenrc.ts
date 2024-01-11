@@ -1,7 +1,11 @@
-import { cdk } from 'projen';
-import { NodePackageManager } from 'projen/lib/javascript';
+import { cdk, SampleFile } from 'projen';
+import { DEFAULT_PROJEN_CONFIG } from './src';
+import { devDependencies } from './src/configuration/dev-dependencies';
+import { configureGitIgnore } from './src/configuration/git-ignore';
+import { configureGithubActions } from './src/configuration/github-actions';
 
 const project = new cdk.JsiiProject({
+  ...DEFAULT_PROJEN_CONFIG,
   projenrcTs: true,
   author: 'Paul Bredenberg',
   authorAddress: 'paulbredenberg@gmail.com',
@@ -12,13 +16,24 @@ const project = new cdk.JsiiProject({
   devDeps: ['fs-extra', '@types/fs-extra', 'glob'],
   peerDeps: ['projen@>=0.78.x'],
   jsiiVersion: '5.0.14',
-  jest: false,
-  eslint: false,
-  typescriptVersion: '5.2.x',
-  autoApproveUpgrades: true,
-  autoApproveOptions: { allowedUsernames: ['cdklabs-automation'] },
-  packageManager: NodePackageManager.NPM,
-  sampleCode: false
 });
+
+devDependencies.forEach((dependency) => () => {
+  project.addDevDeps(dependency);
+});
+
+configureGithubActions(project);
+
+project.tryRemoveFile('.eslintrc.json');
+[
+  '.eslintrc.json',
+  '.editorconfig',
+].forEach((filePath) => {
+  new SampleFile(project, filePath, {
+    sourcePath: `${__dirname}/src/sample-files/${filePath.replace('/_', '')}`,
+  });
+});
+
+configureGitIgnore(project);
 
 project.synth();

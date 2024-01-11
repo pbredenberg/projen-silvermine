@@ -4,6 +4,7 @@ name: build
 on:
   pull_request: {}
   workflow_dispatch: {}
+  push: {}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,10 +20,20 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.9.0
       - name: Install dependencies
         run: npm install
+      - name: standards
+        run: npm run standards
+      - name: test
+        run: npm test
       - name: build
-        run: npx projen build
+        run: npm run build
+      - name: projen
+        run: npx projen
       - name: Find mutations
         id: self_mutation
         run: |-
@@ -87,7 +98,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 16.9.0
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
