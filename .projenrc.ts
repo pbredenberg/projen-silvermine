@@ -1,12 +1,13 @@
-import { cdk, SampleFile, TextFile } from 'projen';
-import { CURRENT_NODE_VERSION, DEFAULT_PROJEN_CONFIG } from './src';
+import { cdk, TextFile } from 'projen';
 import { devDependencies } from './src/configuration/dev-dependencies';
 import { configureGitIgnore } from './src/configuration/git-ignore';
 import { configureGithubActions } from './src/configuration/github-actions';
 import { configureNpmScripts } from './src/configuration/npm-scripts';
+import { configureSamplesFiles } from './src/configuration/configure-samples-files';
+import { CURRENT_NODE_VERSION, DEFAULT_SILVERMINE_PROJEN_CONFIG } from './src/constants';
 
 const project = new cdk.JsiiProject({
-  ...DEFAULT_PROJEN_CONFIG,
+  ...DEFAULT_SILVERMINE_PROJEN_CONFIG,
   projenrcTs: true,
   author: 'Paul Bredenberg',
   authorAddress: 'paulbredenberg@gmail.com',
@@ -25,19 +26,26 @@ configureGithubActions(project);
 
 configureNpmScripts(project);
 
-[
-  '.eslintrc.json',
-  '.editorconfig',
-].forEach((filePath) => {
-  new SampleFile(project, filePath, {
-    sourcePath: `${__dirname}/src/sample-files/${filePath.replace('/_', '')}`,
-  });
-});
+configureSamplesFiles(project)
 
 configureGitIgnore(project);
 
+new TextFile(project, '.eslintrc.json', {
+   lines: [
+   '{',
+   '   "extends": "@silvermine/eslint-config/node",',
+   '   "root": true,',
+   '   "ignorePatterns": [',
+   '      "lib",',
+   '      ".projen",',
+   '      "dist"',
+   '   ]',
+   '}'
+   ]
+});
+
 new TextFile(project, '.nvmrc', {
   lines: [ CURRENT_NODE_VERSION ]
-})
+});
 
 project.synth();

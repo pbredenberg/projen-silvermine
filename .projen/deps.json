@@ -1,6 +1,11 @@
 {
   "dependencies": [
     {
+      "name": "@commitlint/cli",
+      "version": "12.1.1",
+      "type": "build"
+    },
+    {
       "name": "@silvermine/chai-strictly-equal",
       "version": "1.1.0",
       "type": "build"
@@ -17,7 +22,7 @@
     },
     {
       "name": "@silvermine/standardization",
-      "version": "2.0.0",
+      "version": "2.2.2",
       "type": "build"
     },
     {
@@ -112,6 +117,11 @@
     {
       "name": "jsii",
       "version": "5.0.14",
+      "type": "build"
+    },
+    {
+      "name": "markdownlint-cli2",
+      "version": "0.7.1",
       "type": "build"
     },
     {
