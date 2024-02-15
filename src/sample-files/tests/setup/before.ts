@@ -1,7 +1,6 @@
 import * as chai from 'chai';
-import enableStrictlyEqual from '@silvermine/chai-strictly-equal';<% if (isBrowser) { %>
+import enableStrictlyEqual from '@silvermine/chai-strictly-equal';
 
-let jsdom: any = require('jsdom-global');<% } %>
+// TODO: support browser projects
 
-chai.use(enableStrictlyEqual);<% if (isBrowser) { %>
-jsdom(undefined, {}); // returns a function that could be called to clean up<%_ } %>
+chai.use(enableStrictlyEqual);

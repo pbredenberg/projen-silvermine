@@ -1,5 +1,5 @@
 export default class Example {
-  public doSomething(): string {
-    return 'something';
-  }
+   public doSomething(): string {
+      return 'something';
+   }
 }

@@ -34,9 +34,23 @@
     "organization": false
   },
   "devDependencies": {
+    "@silvermine/chai-strictly-equal": "1.1.0",
+    "@silvermine/eslint-config": "git+https://github.com/silvermine/eslint-config-silvermine#fa9925f9de6b8139d42781dbd002b4024318744a",
+    "@silvermine/eslint-plugin-silvermine": "2.4.0",
+    "@silvermine/standardization": "2.0.0",
+    "@silvermine/typescript-config": "git+https://github.com/silvermine/typescript-config#23213e33077089e723629dead5342abe6f3b3c8c",
+    "@types/chai": "4.1.7",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^16",
+    "@types/mocha": "5.2.5",
+    "@types/node": "12.20.45",
+    "@types/sinon": "5.0.5",
+    "@typescript-eslint/eslint-plugin": "5.17.0",
+    "@typescript-eslint/parser": "5.17.0",
+    "chai": "4.2.0",
+    "check-node-version": "4.0.2",
     "constructs": "^10.0.0",
+    "coveralls": "3.0.9",
+    "eslint": "8.16.0",
     "fs-extra": "^9.1.0",
     "glob": "^7.2.3",
     "jsii": "5.0.14",
@@ -44,10 +58,15 @@
     "jsii-docgen": "^10.3.3",
     "jsii-pacmak": "^1.93.0",
     "jsii-rosetta": "5.0.14",
+    "mocha": "5.2.0",
+    "nyc": "13.1.0",
     "projen": "0.78.0",
+    "sinon": "5.1.1",
+    "source-map-support": "0.5.16",
     "standard-version": "^9",
     "ts-node": "7.0.1",
-    "typescript": "5.2.x"
+    "tslib": "1.9.3",
+    "typescript": "3.9.5"
   },
   "peerDependencies": {
     "projen": ">=0.78.x"

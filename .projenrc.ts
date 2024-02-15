@@ -19,9 +19,7 @@ const project = new cdk.JsiiProject({
   jsiiVersion: '5.0.14',
 });
 
-devDependencies.forEach((dependency) => () => {
-  project.addDevDeps(dependency);
-});
+project.addDevDeps(...devDependencies)
 
 configureGithubActions(project);
 
