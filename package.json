@@ -6,7 +6,7 @@
     "url": "https://github.com/projen-silvermine.git"
   },
   "scripts": {
-    "build": "npx projen build",
+    "build": "npm run build:types && npm run build:esm && npm run build:commonjs",
     "bump": "npx projen bump",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
@@ -24,6 +24,9 @@
     "unbump": "npx projen unbump",
     "watch": "npx projen watch",
     "projen": "npx projen",
+    "build:types": "tsc -p src/tsconfig.types.json --pretty",
+    "build:esm": "tsc -p src/tsconfig.esm.json --pretty",
+    "build:commonjs": "tsc -p src/tsconfig.commonjs.json --pretty",
     "commitlint": "commitlint --from $(git log -1 --skip=-20 --pretty=format:\"%h\" --no-patch)",
     "markdownlint": "markdownlint-cli2",
     "eslint": "eslint .",

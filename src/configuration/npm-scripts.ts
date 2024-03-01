@@ -2,6 +2,10 @@ import { typescript } from 'projen';
 
 export const configureNpmScripts = (project: typescript.TypeScriptProject): void => {
    project.addScripts({
+      'build:types': 'tsc -p src/tsconfig.types.json --pretty',
+      'build:esm': 'tsc -p src/tsconfig.esm.json --pretty',
+      'build:commonjs': 'tsc -p src/tsconfig.commonjs.json --pretty',
+      'build': 'npm run build:types && npm run build:esm && npm run build:commonjs',
       'commitlint': 'commitlint --from $(git log -1 --skip=-20 --pretty=format:"%h" --no-patch)',
       'markdownlint': 'markdownlint-cli2',
       'eslint': 'eslint .',
