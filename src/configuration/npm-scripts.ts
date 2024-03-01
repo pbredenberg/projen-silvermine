@@ -2,7 +2,7 @@ import { typescript } from 'projen';
 
 export const configureNpmScripts = (project: typescript.TypeScriptProject): void => {
    project.addScripts({
-      'commitlint': 'commitlint --from e736715',
+      'commitlint': 'commitlint --from $(git log -1 --skip=-20 --pretty=format:"%h" --no-patch)',
       'markdownlint': 'markdownlint-cli2',
       'eslint': 'eslint .',
       'standards': 'npm run commitlint && npm run eslint && npm run markdownlint',
