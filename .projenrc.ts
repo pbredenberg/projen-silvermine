@@ -34,6 +34,9 @@ configureSamplesFiles(project)
 
 configureGitIgnore(project);
 
+// projen ignores nested tsconfig files, but we want to preserve ours
+project.addGitIgnore('!/src/sample-files/tests/tsconfig.json');
+
 new TextFile(project, '.eslintrc.json', {
    lines: [
    '{',
