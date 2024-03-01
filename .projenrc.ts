@@ -26,6 +26,10 @@ configureGithubActions(project);
 
 configureNpmScripts(project);
 
+project.addScripts({
+   'build': ''
+})
+
 configureSamplesFiles(project)
 
 configureGitIgnore(project);

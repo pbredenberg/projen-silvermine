@@ -10,7 +10,7 @@ export const devDependencies = [
    '@silvermine/typescript-config@git+https://github.com/silvermine/typescript-config#23213e33077089e723629dead5342abe6f3b3c8c',
    '@types/chai@4.1.7',
    '@types/mocha@5.2.5',
-   '@types/node@12.20.45',
+   '@types/node@16.11.43',
    '@types/sinon@5.0.5',
    '@typescript-eslint/eslint-plugin@5.17.0',
    '@typescript-eslint/parser@5.17.0',
