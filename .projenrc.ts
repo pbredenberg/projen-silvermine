@@ -15,7 +15,6 @@ const project = new cdk.JsiiProject({
    packageName: 'projen-silvermine',
    devDeps: ['fs-extra', '@types/fs-extra', 'glob'],
    peerDeps: ['projen@>=0.78.x', 'constructs@10.3.0'],
-   jsiiVersion: '5.0.14',
 });
 
 project.addDevDeps(...devDependencies);
