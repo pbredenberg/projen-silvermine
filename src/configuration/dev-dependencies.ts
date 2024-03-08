@@ -3,7 +3,6 @@
  * https://projen.io/deps.html#overriding-dependency-specifications
  */
 export const devDependencies = [
-   '@silvermine/chai-strictly-equal@1.1.0',
    '@silvermine/eslint-config@git+https://github.com/silvermine/eslint-config-silvermine#fa9925f9de6b8139d42781dbd002b4024318744a',
    '@silvermine/eslint-plugin-silvermine@2.4.0',
    '@silvermine/standardization@2.2.2',

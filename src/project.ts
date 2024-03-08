@@ -3,7 +3,7 @@ import { TextFile, typescript } from 'projen';
 import { devDependencies } from './configuration/dev-dependencies';
 import { configureGitIgnore } from './configuration/git-ignore';
 import { configureGithubActions } from './configuration/github-actions';
-import { configureNpmScripts } from './configuration/npm-scripts';
+import { configureNpmBuildScripts, configureNpmStandardsScripts, configureNpmReleaseScripts } from './configuration/npm-scripts';
 import { configureSamplesFiles } from './configuration/configure-samples-files';
 import { CURRENT_NODE_VERSION, DEFAULT_SILVERMINE_PROJEN_CONFIG } from './constants';
 
@@ -22,7 +22,11 @@ export class SilvermineProject extends typescript.TypeScriptProject {
 
       configureGitIgnore(this);
 
-      configureNpmScripts(this);
+      configureNpmReleaseScripts(this);
+
+      configureNpmBuildScripts(this);
+
+      configureNpmStandardsScripts(this);
 
       configureSamplesFiles(this);
 

@@ -32,7 +32,6 @@ export const SAMPLE_FILES = [
    'src/tsconfig.commonjs.json',
    'src/tsconfig.esm.json',
    'src/tsconfig.types.json',
-   'tests/setup/before.ts',
    'tests/eslintrc.json',
    'tests/index.test.ts',
    'tests/tsconfig.json',

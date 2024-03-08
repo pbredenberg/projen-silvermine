@@ -6,7 +6,7 @@
     "url": "https://github.com/projen-silvermine.git"
   },
   "scripts": {
-    "build": "",
+    "build": "npx projen build",
     "bump": "npx projen bump",
     "clobber": "npx projen clobber",
     "compat": "npx projen compat",
@@ -24,16 +24,10 @@
     "unbump": "npx projen unbump",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "build:types": "tsc -p src/tsconfig.types.json --pretty",
-    "build:esm": "tsc -p src/tsconfig.esm.json --pretty",
-    "build:commonjs": "tsc -p src/tsconfig.commonjs.json --pretty",
     "commitlint": "commitlint --from $(git log -1 --skip=-20 --pretty=format:\"%h\" --no-patch)",
     "markdownlint": "markdownlint-cli2",
     "eslint": "eslint .",
-    "standards": "npm run commitlint && npm run eslint && npm run markdownlint",
-    "release:preview": "node ./node_modules/@silvermine/standardization/scripts/release.js preview",
-    "release:prep-changelog": "node ./node_modules/@silvermine/standardization/scripts/release.js prep-changelog",
-    "release:finalize": "node ./node_modules/@silvermine/standardization/scripts/release.js finalize"
+    "standards": "npm run commitlint && npm run eslint && npm run markdownlint"
   },
   "author": {
     "name": "Paul Bredenberg",
@@ -42,7 +36,6 @@
   },
   "devDependencies": {
     "@commitlint/cli": "12.1.1",
-    "@silvermine/chai-strictly-equal": "1.1.0",
     "@silvermine/eslint-config": "git+https://github.com/silvermine/eslint-config-silvermine#fa9925f9de6b8139d42781dbd002b4024318744a",
     "@silvermine/eslint-plugin-silvermine": "2.4.0",
     "@silvermine/standardization": "2.2.2",
@@ -56,7 +49,7 @@
     "@typescript-eslint/parser": "5.17.0",
     "chai": "4.2.0",
     "check-node-version": "4.0.2",
-    "constructs": "^10.0.0",
+    "constructs": "10.3.0",
     "coveralls": "3.0.9",
     "eslint": "8.16.0",
     "fs-extra": "^9.1.0",
@@ -78,6 +71,7 @@
     "typescript": "3.9.5"
   },
   "peerDependencies": {
+    "constructs": "10.3.0",
     "projen": ">=0.78.x"
   },
   "engines": {
