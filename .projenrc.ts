@@ -1,4 +1,4 @@
-import { cdk, TextFile } from 'projen';
+import { cdk, github, TextFile } from 'projen';
 import { devDependencies } from './src/configuration/dev-dependencies';
 import { configureGitIgnore } from './src/configuration/git-ignore';
 import { configureNpmStandardsScripts } from './src/configuration/npm-scripts';
@@ -15,6 +15,9 @@ const project = new cdk.JsiiProject({
    packageName: 'projen-silvermine',
    devDeps: ['fs-extra', '@types/fs-extra', 'glob'],
    peerDeps: ['projen@>=0.78.x', 'constructs@10.3.0'],
+   githubOptions: {
+      projenCredentials: github.GithubCredentials.fromApp({})
+   }
 });
 
 project.addDevDeps(...devDependencies);
@@ -43,5 +46,8 @@ new TextFile(project, '.eslintrc.json', {
 new TextFile(project, '.nvmrc', {
   lines: [ CURRENT_NODE_VERSION ]
 });
+
+project.tryRemoveFile('.github/workflows/pull-request-lint.yml');
+project.tryRemoveFile('.github/workflows/release.yml');
 
 project.synth();
