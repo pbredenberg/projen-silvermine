@@ -6,7 +6,7 @@ permissions-backup.acl
 /.mergify.yml
 /test/
 /tsconfig.dev.json
-/src/
+!/src/
 !/lib/
 !/lib/**/*.js
 !/lib/**/*.d.ts
