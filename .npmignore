@@ -18,3 +18,5 @@ dist
 /.projenrc.js
 tsconfig.tsbuildinfo
 !.jsii
+!/src/**/*.*
+/lib/**/*.*
