@@ -7,7 +7,7 @@ export const configureSamplesFiles = (project: SilvermineProject): void => {
       .forEach((filePath) => {
          // eslint-disable-next-line no-new
          new SampleFile(project, filePath, {
-            sourcePath: `${__dirname}/../sample-files/${filePath}`,
+            sourcePath: `${__dirname}/../../sample-files/${filePath}`,
          });
       });
 };

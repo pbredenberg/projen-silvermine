@@ -19,4 +19,3 @@ dist
 tsconfig.tsbuildinfo
 !.jsii
 !/src/**/*.*
-/lib/**/*.*
