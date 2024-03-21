@@ -17,8 +17,10 @@ const project = new cdk.JsiiProject({
    peerDeps: ['projen@>=0.78.x', 'constructs@10.3.0'],
    githubOptions: {
       projenCredentials: github.GithubCredentials.fromApp({})
-   }
+   },
 });
+
+project.addPackageIgnore('!/src/');
 
 project.addDevDeps(...devDependencies);
 
