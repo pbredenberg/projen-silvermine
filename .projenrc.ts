@@ -20,8 +20,6 @@ const project = new cdk.JsiiProject({
    },
 });
 
-project.addPackageIgnore('!/src/');
-
 project.addDevDeps(...devDependencies);
 
 configureNpmStandardsScripts(project);
