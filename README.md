@@ -14,3 +14,17 @@ npx projen new --from projen-silvermine
 ```
 
 [url-projen]: https://projen.io/
+
+## Publishing New Versions
+
+```bash
+npx projen bump
+```
+
+```bash
+npx projen release
+```
+
+```bash
+npm publish dist/js/projen-silvermine@version.number
+```
