@@ -38,7 +38,7 @@ npx projen release
 Tag the release:
 
 ```bash
-git tag {vX.X.X} && git push origin tags
+git tag {vX.X.X} && git push origin {vX.X.X}
 ```
 
 Publish the tarball to NPM:

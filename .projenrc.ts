@@ -2,7 +2,7 @@ import { cdk, github, TextFile } from 'projen';
 import { devDependencies } from './src/configuration/dev-dependencies';
 import { configureGitIgnore } from './src/configuration/git-ignore';
 import { configureNpmStandardsScripts } from './src/configuration/npm-scripts';
-import { CURRENT_NODE_VERSION, DEFAULT_SILVERMINE_PROJEN_CONFIG } from './src/constants';
+import { CURRENT_NODE_VERSION, DEFAULT_SILVERMINE_PROJEN_CONFIG, SAMPLE_FILES } from './src/constants';
 
 const project = new cdk.JsiiProject({
    ...DEFAULT_SILVERMINE_PROJEN_CONFIG,
@@ -18,6 +18,10 @@ const project = new cdk.JsiiProject({
    githubOptions: {
       projenCredentials: github.GithubCredentials.fromApp({})
    },
+});
+
+SAMPLE_FILES.forEach((file) => {
+   project.addPackageIgnore(`!/sample-files/${file}`);
 });
 
 project.addDevDeps(...devDependencies);
